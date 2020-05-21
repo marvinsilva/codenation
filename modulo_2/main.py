@@ -8,35 +8,21 @@ class Department:
 
 
 class Employee(metaclass=ABCMeta):
+    work_hours = 8
+
     @abstractmethod
     def __init__(self, code, name, salary):
-        self.__code = code
-        self.__name = name
+        self.code = code
+        self.name = name
         self.__salary = salary
 
     @abstractmethod
     def calc_bonus(self):
-        pass
+        return self.salary * 0.15
 
-    @staticmethod
-    def get_hours():
-        return 8
-
-    @property
-    def name(self):
-        return self.__name
-
-    @name.setter
-    def name(self, name):
-        self.__name = name
-
-    @property
-    def code(self):
-        return self.__code
-
-    @code.setter
-    def code(self, code):
-        self.__code = code
+    @classmethod
+    def get_hours(cls):
+        return cls.work_hours
 
     @property
     def salary(self):
