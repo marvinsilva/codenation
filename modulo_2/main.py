@@ -11,11 +11,11 @@ class Employee(metaclass=ABCMeta):
     work_hours = 8
 
     @abstractmethod
-    def __init__(self, code, name, salary, departament):
+    def __init__(self, code, name, salary, department):
         self.code = code
         self.name = name
         self.__salary = salary
-        self.__departament = departament
+        self.__department = department
 
     @abstractmethod
     def calc_bonus(self):
@@ -33,11 +33,11 @@ class Employee(metaclass=ABCMeta):
     def salary(self, salary):
         self.__salary = salary
 
-    def get_departament(self):
-        return self.__departament.name
+    def get_department(self):
+        return self.__department.name
 
-    def set_departament(self, departament):
-        self.__departament.name = departament
+    def set_department(self, department):
+        self.__department.name = department
 
 
 class Manager(Employee):
