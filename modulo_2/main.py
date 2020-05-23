@@ -10,7 +10,6 @@ class Department:
 class Employee(metaclass=ABCMeta):
     work_hours = 8
 
-    @abstractmethod
     def __init__(self, code, name, salary, department):
         self.code = code
         self.name = name
@@ -36,8 +35,9 @@ class Employee(metaclass=ABCMeta):
     def get_department(self):
         return self.__department.name
 
-    def set_department(self, department):
-        self.__department.name = department
+    def set_department(self, name, code):
+        self.__department.name = name
+        self.__department.code = code
 
 
 class Manager(Employee):
